@@ -1,0 +1,36 @@
+{
+	"jediBean": [
+		{
+			"name": "sample",
+			"className": "cn.jedisoft.framework.examples.Sample"
+		}
+	],
+	"jediApi": [
+		{
+			"name": "sample api",
+			"path": "/api/sample",
+			"beanName": "sample"
+		}
+	],
+	"jediIoC": {
+		"using": "spring"
+	},
+	"jediDs": [
+		{
+			"name": "default",
+			"mode": "write",
+			"lookup": "jdbc/test",
+		},
+		{
+			"name": "default",
+			"mode": "write",
+			"driver": "com.mysql.jdbc.Driver",
+			"url": "jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8",
+			"username": "root",
+			"password": "123456"
+		}
+	],
+	"jediScan": [
+		"cn.jedisoft.examples.api"
+	]
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE jedi-framework
+		PUBLIC "-//jedisoft.cn//DTD JediFramework 1.0//EN"
+		"http://www.jedisoft.cn/java-web/framework/dtds/jedi-framework1.0.dtd">
+
+<jedi-framework>
+
+	<!-- 
+	<jedi-bean scope="singleton">
+	<name>sample</name>
+	<desc>sample</desc>
+	<class>cn.jedisoft.web.xxx</class>
+	</jedi-bean>
+	-->
+
+	<!-- 
+	<jedi-ioc using="spring" />
+	-->
+
+	<!-- 
+	<jedi-ds>
+	<mode>read</mode>
+	<lookup>jdbc/test</lookup>
+	</jedi-ds>
+	-->
+
+	<jedi-ds mode="write">
+	<name>default</name>
+	<driver>com.mysql.jdbc.Driver</driver>
+	<url>jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8</url>
+	<username>root</username>
+	<password>1234</password>
+	</jedi-ds>
+
+	<jedi-scan>cn.jedisoft.examples.api</jedi-scan>
+
+	<!-- 
+	<jedi-api>
+	<name>sample api</name>
+	<desc>sample api</desc>
+	<path>/api/sample</path>
+	<bean>sample</bean>
+	</jedi-api>
+	-->
+
+</jedi-framework>

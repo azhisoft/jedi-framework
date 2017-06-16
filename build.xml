@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jedi-framework" default="jar" basedir=".">
+
+	<!-- 重要属性定义 -->
+	<property name="build.properties" value="build.properties" />
+	<property file="${build.properties}" />
+
+	<!-- 引用lib的路径 -->
+	<path id="lib.classpath">
+		<fileset dir="${project.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- 引用自身类路径 -->
+	<path id="compile.classpath">
+		<path refid="lib.classpath" />
+		<pathelement location="${project.output.dir}" />
+	</path>
+
+	<!-- 初始化 -->
+	<target name="init">
+		<delete dir="${project.output.dir}" /> 
+		<mkdir dir="${project.output.dir}" />
+	</target>
+
+	<!-- 编译源文件 -->
+	<target name="compile" depends="init">
+		<javac encoding="utf-8" srcdir="${project.src.dir}" destdir="${project.output.dir}" source="1.7" target="1.7" includeantruntime="on">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<!-- 生成jar包 -->
+	<target name="jar" depends="compile">
+		<copy todir="${project.output.dir}">
+			<fileset dir="${project.resources.dir}" />
+		</copy>
+		<jar jarfile="${project.output.jar}">
+			<fileset dir="${project.output.dir}" includes="**/*.*" />
+		</jar>
+	</target>
+
+</project>

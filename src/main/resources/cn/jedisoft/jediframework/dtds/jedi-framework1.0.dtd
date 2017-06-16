@@ -1,0 +1,46 @@
+<!--
+ JediFramework DTD
+ http://www.jedisoft.cn/java-web/framework/dtds
+-->
+
+<!ELEMENT jedi-framework (jedi-bean*, jedi-api*, jedi-render?, jedi-ioc?, jedi-scan*)>
+<!ATTLIST jedi-framework
+decode-using CDATA #IMPLIED
+>
+
+<!ELEMENT jedi-bean (name, class-name, init-param*)>
+<!ATTLIST jedi-bean
+scope (singleton|prototype) "singleton"
+>
+
+<!ELEMENT jedi-api (name?, path, bean-name, set*)>
+
+<!ELEMENT jedi-render (#PCDATA)>
+<!ATTLIST jedi-render
+using (jsp|freemarker) "freemarker"
+>
+
+<!ELEMENT jedi-ioc (#PCDATA)>
+<!ATTLIST jedi-ioc
+using (self|spring) "self"
+>
+
+<!ELEMENT jedi-scan (#PCDATA)>
+<!ATTLIST jedi-scan
+type (api|html) "api"
+>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT path (#PCDATA)>
+<!ELEMENT bean-name (#PCDATA)>
+<!ELEMENT class-name (#PCDATA)>
+
+<!ELEMENT set (#PCDATA)>
+<!ATTLIST set
+type (request|session|response-header|cookie|content-type|charset|locale|status|expires|parameter|method) "request"
+name CDATA #IMPLIED
+>
+
+<!ELEMENT init-param (param-name, param-value)>
+<!ELEMENT param-name (#PCDATA)>
+<!ELEMENT param-value (#PCDATA)>
